@@ -2,7 +2,7 @@ import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import PageNotFount from "./pages/PageNotFount";
 import Pricing from "./pages/Pricing";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 // import PageNav from "./components/PageNav";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
@@ -45,10 +45,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="app" element={<AppLayout />}>
-            <Route
-              index
-              element={<CityList cities={cities} isloading={loading} />}
-            />
+            <Route index element={<Navigate to="cities" />} />
             <Route
               path="cities"
               element={<CityList cities={cities} isloading={loading} />}
